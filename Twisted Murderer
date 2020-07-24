@@ -1,0 +1,58 @@
+-- Script made by Matrix#9569 aka Polar Bear
+
+-- loadstring by romannn
+
+function notify(title,text,duration)
+    game.StarterGui:SetCore("SendNotification", {
+        Title = title;
+        Text = text;
+        Duration = duration; 
+    })
+end
+
+notify("Twisted Murderer ESP","Loaded\nMade by Matrix#9569 aka Polar Bear",5)
+wait(2)
+notify("Twisted Murderer ESP","Enjoy and have fun!\nP.S I needed a way to see what role is the player\nWhich is why I made this.",5)
+
+function createBox(t,color,size)
+    local box = Instance.new('BoxHandleAdornment')
+    box.Parent = t
+    box.Size = size
+    box.Adornee = t
+    box.Color3 = color
+    box.AlwaysOnTop = true
+    box.ZIndex = 1
+    box.Transparency = 0.6
+end
+
+function espPlayer(p)
+	local role = p.Character:FindFirstChild("Role")
+	local s = Vector3.new(3,5,3)
+	if role ~= nil then
+		if role.Value == "Murderer" then
+			createBox(p.Character,Color3.fromRGB(255, 61, 61),s)
+		elseif role.Value == "Sheriff" then
+			createBox(p.Character,Color3.fromRGB(252, 119, 17),s)
+		elseif role.Value == "Innocent" then
+			createBox(p.Character,Color3.fromRGB(64, 255, 50),s)
+		end
+	end
+end
+
+function doESP()
+	for _,plr in pairs(game.Players:GetChildren()) do
+		if plr.Character ~= nil then
+			local char = plr.Character
+			if char:FindFirstChild("BoxHandleAdornment") then
+				char.BoxHandleAdornment:Destroy()
+				espPlayer(plr)
+			else
+				espPlayer(plr)
+			end
+		end
+	end
+end
+
+while wait() do
+	doESP()
+end
