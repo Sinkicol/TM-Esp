@@ -1,19 +1,3 @@
--- Script made by Matrix#9569 aka Polar Bear
-
--- loadstring by romannn
-
-function notify(title,text,duration)
-    game.StarterGui:SetCore("SendNotification", {
-        Title = title;
-        Text = text;
-        Duration = duration; 
-    })
-end
-
-notify("Twisted Murderer ESP","Loaded\nMade by Matrix#9569 aka Polar Bear",5)
-wait(2)
-notify("Twisted Murderer ESP","Enjoy and have fun!\nP.S I needed a way to see what role is the player\nWhich is why I made this.",5)
-
 function createBox(t,color,size)
     local box = Instance.new('BoxHandleAdornment')
     box.Parent = t
